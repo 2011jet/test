@@ -12,6 +12,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 public class OmniTele extends OpMode {
 
+    //TODO: Add the variables for operating the arm
     private DcMotor frontLeft; //This defines the front left motor as a motor
     private DcMotor frontRight; //This defines the front right motor as a motor
     private DcMotor backLeft; //This defines the back left motor as a motor
@@ -47,14 +48,14 @@ public class OmniTele extends OpMode {
             frontRight.setPower(-gamepad1.left_stick_y);
             backLeft.setPower(gamepad1.left_stick_y);
             backRight.setPower(-gamepad1.left_stick_y);
-        } else if(gamepad1.left_stick_x != 0){
-            frontLeft.setPower(-gamepad1.left_stick_y);
-            frontRight.setPower(-gamepad1.left_stick_y);
-            backLeft.setPower(gamepad1.left_stick_y);
-            backRight.setPower(gamepad1.left_stick_y);
+        } if(gamepad1.left_stick_x != 0){
+            frontLeft.setPower(-gamepad1.left_stick_x);
+            frontRight.setPower(-gamepad1.left_stick_x);
+            backLeft.setPower(gamepad1.left_stick_x);
+            backRight.setPower(gamepad1.left_stick_x);
         }
 
-        //This turns the robot
+        //This rotates the robot
         //TODO: test this code
         if (gamepad1.right_stick_x != 0) {
             frontLeft.setPower(gamepad1.left_stick_y);
@@ -78,5 +79,7 @@ public class OmniTele extends OpMode {
                 gripperLeftHand.setPosition(gripperLeftHandPos - .01);
             }
         }
+
+        //TODO: add support for the arm
     }
 }
